@@ -1,6 +1,11 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
-import Profile from './pages/my-profile';
+import SavedCountries from './pages/SavedCountries';
+import Country from './pages/Country';
+import * as FaIcons from 'react-icons/fa';
+// import Header from './custom_components/header';
+// import { useState } from 'react';
+// import Header from './custom_components/header';
 
 
 function App() {
@@ -8,14 +13,18 @@ function App() {
 
   return (
     <>
-      <header>
+      <header className="header">
         <h1>Where in the world?</h1>
-        <ul>
+        <ul className="navContainter">
           <li>
-            <Link to="/my-profile">Saved Countries</Link>
+
+            <Link className="linkToSaved" to="/SavedCountries">
+              <FaIcons.FaHeart strokeWidth={25} stroke="black" size={15} fill="white"/> Saved Countries
+            </Link>
           </li>
           <li>
-            <Link to="/dark-mode">Dark Mode</Link>
+            <Link className="darkMode" to="/dark-mode">
+            <FaIcons.FaMoon strokeWidth={25} stroke="black" size={15} fill="white"  /> Dark Mode</Link>
           </li>
         </ul>
       </header>
@@ -23,7 +32,8 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/my-profile" element={<Profile />} />
+        <Route path="/savedcountries" element={<SavedCountries />} />
+        <Route path="/country" element={<Country />} />
       </Routes>
     </>
   )
