@@ -1,6 +1,7 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';// import Home from '../pages/Home';
 import Home from '../pages/Home';
 import SavedCountries from '../pages/SavedCountries';
+import Country from '../pages/Country';
 // import Country from '../pages/Country';
 import * as FaIcons from 'react-icons/fa';
 // import ColorMode from '../helperFunctions/ColorModeButton';
@@ -35,7 +36,7 @@ function Header() {
                <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/savedcountries" element={<SavedCountries />} />
-                {/* <Route path="/country" element={<Country />} /> */}
+                <Route path="/country/:id" element={<Country />} />
             </Routes>
         </>
     )
