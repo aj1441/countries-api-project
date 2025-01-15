@@ -36,9 +36,25 @@
   --white: hsl(0, 0%, 100%); /* Dark Mode Text & Light Mode Elements */
 }
 body {
-  background-color: var(--verylightgrey);
-  color: var(--verydarkbluetext);
+  
   font-family: "Nunito Sans", sans-serif;
+}
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+  input, textarea {
+    background-color: var(--darkgray);
+    color: var(--verydarkbluetext);
+  }
+}
+
+body.dark {
+  background-color: var(--verydarkblue);
+  color: var(--white);
+  input, textarea {
+    background-color: var(--darkblue);
+    color: var(--white);
+  }
 }
 .header {
   background-color: var(--white);

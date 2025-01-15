@@ -1,8 +1,16 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import Home from '../pages/Home';
 import SavedCountries from '../pages/SavedCountries';
-import Country from '../pages/Country';
+// import Country from '../pages/Country';
 import * as FaIcons from 'react-icons/fa';
+// import ColorMode from '../helperFunctions/ColorModeButton';
+import { ColorModeButton } from "../components/ui/color-mode"
+
+
+
+
+
+
 
 
 function Header() {
@@ -18,15 +26,16 @@ function Header() {
                      </Link>
                    </li>
                    <li>
-                     <Link className="darkMode" to="/dark-mode">
-                     <FaIcons.FaMoon strokeWidth={25} stroke="black" size={15} fill="white"  /> Dark Mode</Link>
+                   <ColorModeButton />
+                     {/* <Link className="darkMode" to="/dark-mode">
+                     <FaIcons.FaMoon strokeWidth={25} stroke="black" size={15} fill="white"  /> Dark Mode</Link> */}
                    </li>
                  </ul>
                </header>
                <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/savedcountries" element={<SavedCountries />} />
-                <Route path="/country" element={<Country />} />
+                {/* <Route path="/country" element={<Country />} /> */}
             </Routes>
         </>
     )
