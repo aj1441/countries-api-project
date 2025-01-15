@@ -1,13 +1,13 @@
 // import Header from '../customComponents/header';
-
+import UserForm from '../customComponents/UserForm';
 function savedcountries() {
 
     return (
        <> 
-       {/* <Header /> */}
         <div>
             <h1>My Saved Countries</h1>
         </div>
+        <UserForm />
         </>
     )
 }

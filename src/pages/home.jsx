@@ -29,24 +29,6 @@ function Home() {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
 
-    // const [searchTerm, setSearchTerm] = useState('');
-    // const [selectedOption, setSelectedOption] = useState('');
-  
-    // const options = [
-    //   { value: 'Africa', label: 'Africa' },
-    //   { value: 'America', label: 'America' },
-    //   { value: 'Asia', label: 'Asia' },
-    //   { value: 'Europe', label: 'Europe' },
-    //   { value: 'Oceania', label: 'Oceania' },
-    // ];
-  
-    // const handleSearchChange = (event) => {
-    //   setSearchTerm(event.target.value);
-    // };
-  
-    // const handleDropdownChange = (event) => {
-    //   setSelectedOption(event.target.value);
-    // };
 
     return (
         <>
