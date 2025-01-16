@@ -38,8 +38,9 @@
 body {
   
   font-family: "Nunito Sans", sans-serif;
+  background-color: var(--verylightgrey);
 }
-body.light {
+/* body.light {
   background-color: #ffffff;
   color: #000000;
   input, textarea {
@@ -55,7 +56,7 @@ body.dark {
     background-color: var(--darkblue);
     color: var(--white);
   }
-}
+} */
 .header {
   background-color: var(--white);
   color: var(--verydarkbluetext);
@@ -156,6 +157,45 @@ body.dark {
   font-family: "nunito-sans-regular";
   border-top: none;
   border-radius: 0px 0px 5px 5px;
+}
+.MyCounrtyCardContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--verylightgrey);
+  /* border-radius: 5px; */
+  /* border-radius: 30px; */
+}
+.CountryContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+}
+.IndividualCountryCard {
+  margin: auto;
+  padding: 1rem;
+  width: 100%;
+}
+.CountryDetails {
+  flex: 1;
+  padding: 1rem;
+}
+
+.BackButton {
+  background-color: var(--verylightgrey);
+  color: var(--verydarkbluetext);
+  border-radius: 5px;
+  text-align: center;
+  margin: 2rem;
+  padding: 0.5rem;
+  width: 10%;
+  align-items: center;
+  border: 1px solid rgba(160, 142, 142, 0.2);
 }
 
 form {

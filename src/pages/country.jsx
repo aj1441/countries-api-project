@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Card, Image, Badge, Box, HStack, Text } from '@chakra-ui/react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Card, Image, Badge, Box, HStack, Text} from '@chakra-ui/react';
 // import { Badge, Box, Card, HStack, Image, Text } from "@chakra-ui/react"
 import { Button } from "../components/ui/button"
 // import { CardHorizontal } from './customComponents/IndividualCountryCard';  
+import './Country.css'
 
 const Country = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [country, setCountry] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -33,40 +35,34 @@ const Country = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
+  const handleBackClick = () => {
+    navigate(-1); // Navigate back to the previous page
+  };
+
   return (
+    <>
     <div>
-      <Card.Root flexDirection="row" overflow="hidden" maxW="xl">
-        <Image
-          objectFit="cover"
-          maxW="200px"
-          src={country.flags.png}
-          alt="Image of {country.name.common}"
-        />
-        <Box>
-          <Card.Body>
-            <Card.Title mb="2">{country.name.common}</Card.Title>
-            <Card.Description>
-              <ul>
-                <li>Population: {country.population}</li>
-                <li>Region: {country.region}</li>
-                <li>Capital: {country.capital}</li>
-                <li>Search For: XX times</li>
-              </ul>
-            </Card.Description>
-            <HStack mt="4">
-              <Text fontWeight="semibold" textStyle="sm">
-                Border Countries:
-              </Text>
-              <Badge>Some Country</Badge>
-              <Badge>Some Country</Badge>
-            </HStack>
-          </Card.Body>
-          <Card.Footer>
-            <Button>Save</Button>
-          </Card.Footer>
-        </Box>
-      </Card.Root>
+      <Button className ="BackButton" onClick={handleBackClick}>Back</Button>
     </div>
+    <div className="MyCountryCardContainer">
+            <img src={country.flags.png} alt={`Image of ${country.name.common}`} />
+            <div className="CountryDetails">
+                <h2>{country.name.common}</h2>
+                <p><span>Population:</span> {country.population}</p>
+                <p><span>Region:</span> {country.region}</p>
+                <p><span>Capital:</span> {country.capital}</p>
+                <p><span>Search For:</span> XX times</p>
+            </div>
+            <div className="BorderCountries">
+                <h4>Border Countries:</h4>
+                <span>Some Country</span>
+                <span>Some Country</span>
+            </div>
+            <div className ="SaveButton">
+            <Button >Save</Button>
+            </div>
+        </div>
+     </>
   );
 };
 

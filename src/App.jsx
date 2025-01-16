@@ -7,7 +7,7 @@ import Header from './customComponents/Header';
 // import { useState } from 'react';
 // import Header from './custom_components/header';
 // import ColorMode from './helperFunctions/ColorModeButton';
-
+import './App.css'
 
 function App() {
   return (

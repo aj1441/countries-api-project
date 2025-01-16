@@ -1,34 +1,43 @@
-// import { ColorModeButton } from "@/components/ui/color-mode"
+// import { Button, Flex } from "@chakra-ui/react";
+// import { LuMoon, LuSun } from "react-icons/lu";
+// import { useColorMode } from "../components/ui/color-mode";
 
-// const Demo = () => {
-//   return <ColorModeButton /> 
-// }
+// export default function ColorModeButton() {
+//   const { colorMode, toggleColorMode } = useColorMode();
 
-
-
-
-// // Code to toggle between light and dark mode
-// import { ClientOnly, IconButton, Skeleton } from "@chakra-ui/react"
-// import { useColorMode } from "../components/ui/color-mode"
-// import { LuMoon, LuSun } from "react-icons/lu"
-
-
-// const ColorModeButton = () => {
-//   const { toggleColorMode, colorMode } = useColorMode()
 //   return (
-//     <ClientOnly fallback={<Skeleton boxSize="8" />}>
-//       <IconButton onClick={toggleColorMode} variant="outline" size="sm" className="icon-button">
-//       {colorMode === "light" ? (
-//           <>
-//             <LuSun /> <span>Light Mode</span>
-//           </>
-//         ) : (
-//           <>
-//             <LuMoon /> <span>Dark Mode</span>
-//           </>
-//         )}
-//       </IconButton>
-//     </ClientOnly>
-//   )
+//     <Flex justifyContent="center" alignItems="center" height="100vh">
+//       <Button
+//         onClick={toggleColorMode}
+//         leftIcon={colorMode === "light" ? <LuSun /> : <LuMoon />}
+//         aria-label="Toggle color mode"
+//       >
+//         {colorMode === "light" ? "Light Mode" : "Dark Mode"}
+//       </Button>
+//     </Flex>
+//   );
 // }
-// export default ColorModeButton;
+
+
+
+// import { Button, Flex } from "@chakra-ui/react";
+// import { LuMoon, LuSun } from "react-icons/lu";
+// import {
+//     useColorMode,
+//   } from "../components/ui/color-mode";
+
+// export default function ColorMode() {
+//   const { colorMode, toggleColorMode } = useColorMode();
+
+//   return (
+//     <Flex justifyContent="center" alignItems="center" height="100vh">
+//       <Button
+//         onClick={toggleColorMode}
+//         leftIcon={colorMode === "light" ? <LuSun /> : <LuMoon />}
+//         aria-label="Toggle color mode"
+//       >
+//         {colorMode === "light" ? "Light Mode" : "Dark Mode"}
+//       </Button>
+//     </Flex>
+//   );
+// }

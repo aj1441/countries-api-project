@@ -6,7 +6,7 @@ function savedcountries() {
        <> 
         <div>
             <h1>My Saved Countries</h1>
-             <main className="cardContainer">
+             {/* <main className="cardContainer">
                             {countries.map(country => (
                                 <Card.Root className='cardRoot' key={country.cca3}>
                                     <Image
@@ -24,7 +24,7 @@ function savedcountries() {
                                     </Card.Body>
                                 </Card.Root>
                             ))}
-                        </main>
+                        </main> */}
         </div>
         <UserForm />
         </>
