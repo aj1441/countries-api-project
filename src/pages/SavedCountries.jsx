@@ -1,9 +1,21 @@
 // import Header from '../customComponents/header';
 import UserForm from '../customComponents/UserForm';
-function savedcountries() {
+import { useNavigate } from 'react-router-dom';
+import { Button } from "../components/ui/button"
+
+function SavedCountries() {
+    const navigate = useNavigate();
+
+    const handleBackClick = () => {
+        navigate(-1); // Navigate back to the previous page
+      };
+    
 
     return (
        <> 
+        <div>
+             <Button className ="BackButton" onClick={handleBackClick}>Back</Button>
+           </div>
         <div>
             <h1>My Saved Countries</h1>
              {/* <main className="cardContainer">
@@ -30,4 +42,4 @@ function savedcountries() {
         </>
     )
 }
-export default savedcountries;
+export default SavedCountries;

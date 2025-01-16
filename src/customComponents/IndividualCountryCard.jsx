@@ -1,8 +1,9 @@
 
 import { Badge, Box, Card, HStack, Image, Text } from "@chakra-ui/react"
 import { Button } from "@/components/ui/button"
+import PropTypes from 'prop-types';
 
-export const CardHorizontal = () => (
+export const CardHorizontal = ({ country }) => (
     <Card.Root flexDirection="row" overflow="hidden" maxW="xl">
         <Image
             objectFit="cover"
@@ -35,3 +36,18 @@ export const CardHorizontal = () => (
         </Box>
     </Card.Root>
 )
+
+CardHorizontal.propTypes = {
+    country: PropTypes.shape({
+        flags: PropTypes.shape({
+            png: PropTypes.string.isRequired,
+        }).isRequired,
+        name: PropTypes.shape({
+            common: PropTypes.string.isRequired,
+        }).isRequired,
+        population: PropTypes.number.isRequired,
+        region: PropTypes.string.isRequired,
+        capital: PropTypes.string.isRequired,
+    }).isRequired,
+};
+

@@ -2,15 +2,8 @@ import { Routes, Route, Link } from 'react-router-dom';// import Home from '../p
 import Home from '../pages/Home';
 import SavedCountries from '../pages/SavedCountries';
 import Country from '../pages/Country';
-// import Country from '../pages/Country';
 import * as FaIcons from 'react-icons/fa';
-// import ColorMode from '../helperFunctions/ColorModeButton';
 import { ColorModeButton } from "../components/ui/color-mode"
-
-
-
-
-
 
 
 

@@ -1,58 +1,71 @@
-import { useState } from 'react';
-import { LuSearch } from "react-icons/lu"
+import { useEffect, useState } from 'react';
+import { LuSearch } from 'react-icons/lu';
+import PropTypes from 'prop-types';
+import { fetchCountries } from '../helperFunctions/FetchCountriesApi';
 
+const CountrySearchBar = ({ searchTerm, setSearchTerm, selectedOption, setSelectedOption }) => {
+  // State to store the list of unique regions
+  const [regions, setRegions] = useState([]);
 
-const CountrySearch = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [selectedOption, setSelectedOption] = useState('');
-    
-
-
-    const options = [
-        { value: 'Africa', label: 'Africa' },
-        { value: 'Americas', label: 'America' },
-        { value: 'Antartica', label: 'Antartica' },
-        { value: 'Asia', label: 'Asia' },
-        { value: 'Europe', label: 'Europe' },
-        { value: 'Oceania', label: 'Oceania' },
-    ];
-
-    const handleSearchChange = (event) => {
-        setSearchTerm(event.target.value);
+  // Fetch the list of unique regions when the component mounts
+  useEffect(() => {
+    const getRegions = async () => {
+      try {
+        // Fetch the countries data from the API
+        const data = await fetchCountries();
+        // Extract unique regions from the data
+        const uniqueRegions = [...new Set(data.map(country => country.region))].filter(Boolean);
+        // Set the unique regions to state
+        setRegions(uniqueRegions);
+      } catch (error) {
+        // Log any errors to the console
+        console.error('Failed to fetch regions:', error);
+      }
     };
 
-    const handleDropdownChange = (event) => {
-        setSelectedOption(event.target.value);
-    };
+    getRegions();
+  }, []);
 
-    return (
-        <>
-            <div className="countrySearch">
-                <div className='searchContainer'>
-                    <LuSearch />
-                    <input
-                        type="text"
-                        placeholder="Search..."
-                        value={searchTerm}
-                        onChange={handleSearchChange}
-                    />
-                </div>
+  // Handle changes to the search input field
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
-                <select value={selectedOption} onChange={handleDropdownChange}>
-                    <option value="">Select an option</option>
-                    {options.map((option) => (
-                        <option key={option.value} value={option.value}>
-                            {option.label}
-                        </option>
-                    ))}
-                </select>
-            </div>
-        </>
-   
-    )
-}
+  // Handle changes to the region dropdown
+  const handleDropdownChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
 
+  return (
+    <div className="countrySearch">
+      <div className='searchContainer'>
+        <LuSearch />
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+      </div>
+      <select value={selectedOption} onChange={handleDropdownChange}>
+        <option value="">Select a region</option>
+        {regions.map((region) => (
+          <option key={region} value={region}>
+            {region}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+};
 
+// Define prop types for the CountrySearchBar component
+CountrySearchBar.propTypes = {
+  searchTerm: PropTypes.string.isRequired,
+  setSearchTerm: PropTypes.func.isRequired,
+  selectedOption: PropTypes.string.isRequired,
+  setSelectedOption: PropTypes.func.isRequired,
+};
 
-export default CountrySearch;
-
+// Export the CountrySearchBar component as the default export
+export default CountrySearchBar;
