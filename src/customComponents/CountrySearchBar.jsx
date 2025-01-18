@@ -38,7 +38,7 @@ const CountrySearchBar = ({ searchTerm, setSearchTerm, selectedOption, setSelect
 
   return (
     <div className="countrySearch">
-      <div className='searchContainer'>
+      <div className='searchContainer' id = 'searchContainer'>
         <LuSearch />
         <input
           type="text"

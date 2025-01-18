@@ -1,3 +1,25 @@
+// import { ChakraProvider, ColorModeProvider, extendTheme } from "@chakra-ui/react";
+// import PropTypes from 'prop-types';
+
+// const theme = extendTheme({});
+
+// export default function Layout({ children }) {
+//   return (
+//     <ChakraProvider theme={theme}>
+//       <ColorModeProvider>
+//         {children}
+//       </ColorModeProvider>
+//     </ChakraProvider>
+//   );
+// }
+
+// Layout.propTypes = {
+//   children: PropTypes.node.isRequired,
+// };
+
+
+
+
 
 // import { ClientOnly, IconButton, Skeleton } from "@chakra-ui/react"
 // import { useColorMode } from "../components/ui/color-mode"

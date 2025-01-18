@@ -14,6 +14,8 @@ const Country = () => {
   const [loading, setLoading] = useState(true);
   // State to manage any errors
   const [error, setError] = useState(null);
+  // State to manage the border countries
+  const [borderCountries, setBorderCountries] = useState([]);
 
   // Fetch the country data when the component mounts or the ID changes
   useEffect(() => {
@@ -28,6 +30,16 @@ const Country = () => {
         const data = await response.json();
         // Set the country data to state
         setCountry(data[0]);
+       // Fetch the border countries data
+        if (data[0].borders) {
+          const borderResponses = await Promise.all(
+            data[0].borders.map(border => fetch(`https://restcountries.com/v3.1/alpha/${border}`))
+          );
+          const borderData = await Promise.all(borderResponses.map(res => res.json()));
+          setBorderCountries(borderData.map(b => b[0].name.common));
+        } else {
+          setBorderCountries([]);
+        }
         // Set loading to false
         setLoading(false);
       } catch (error) {
@@ -67,8 +79,13 @@ const Country = () => {
         </div>
         <div className="BorderCountries">
           <h4>Border Countries:</h4>
-          <span>Some Country</span>
-          <span>Some Country</span>
+          {borderCountries.length > 0 ? (
+            borderCountries.map((borderCountry, index) => (
+              <span key={index}>{borderCountry}</span>
+            ))
+          ) : (
+            <span>None</span>
+          )}
         </div>
         <div className="SaveButton">
           <Button>Save</Button>

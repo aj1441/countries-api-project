@@ -3,7 +3,7 @@
 /* // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 200 to 1000 */
 
-.nunito-sans-small {
+/* .nunito-sans-small {
   font-family: "Nunito Sans", serif;
   font-optical-sizing: auto;
   font-weight: 300;
@@ -25,23 +25,20 @@
   font-weight: 800;
   font-style: normal;
   font-variation-settings: "wdth" 100, "YTLC" 500;
-}
+} */
 
 :root {
-  --font-primary: "Nunito Sans", serif;
-  --darkblue: #2b3945;
-  --verydarkblue: #202c37;
-  --verydarkbluetext: #111517;
-  --darkgray: #858585;
-  --verylightgrey: #fafafa;
-  --white: #ffffff;
-  --border-color-light: rgba(195, 181, 181, 0.2);
-  --border-color-dark: rgba(160, 142, 142, 0.2);
+  
+  --darkblue: #2b3945; /*hsl(209, 23%, 22%); /* dark mode elements */
+  --verydarkblue: #202c37; /* hsl(207, 26%, 17%); /*dark mode background */
+  --verydarkbluetext: #111517; /*hsl(200, 15%, 8%); /* light mode text */
+  --darkgray: #858585; /*hsl(0, 0%, 52%); /*Light Mode Input */
+  --verylightgrey: #fafafa; /*hsl(0, 0%, 98%); /* Light Mode Background */
+  --white: #FFFFFF; /*hsl(0, 0%, 100%); /* Dark Mode Text & Light Mode Elements */
 }
 body {
-  font-family: var(--font-primary);
-  margin: 0;
-  padding: 0;
+  
+  font-family: "Nunito Sans", sans-serif;
 }
 body.light {
   background-color: var(--verylightgrey);
@@ -50,7 +47,8 @@ body.light {
 
 body.light input,
 body.light textarea,
-body.light select body.light #searchContainer {
+body.light select
+body.light #searchContainer {
   background-color: var(--verylightgrey);
   color: var(--verydarkbluetext);
 }
@@ -76,11 +74,6 @@ button.theme-toggle {
   border-radius: 5px;
 }
 
-button:hover {
-  transform: translateY(-10px) scale(1.05); /* Moves the card up slightly and scales it */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for a "pop" effect */
-}
-
 .header {
   font-family: "nunito-sans-regular";
   font-size: 1.5rem;
@@ -95,10 +88,6 @@ button:hover {
     font-family: "nunito-sans-large";
     font-weight: bolder;
   }
-}
-h4 {
-  font-family: "nunito-sans-large";
-  font-weight: bolder;
 }
 
 .navContainter {
@@ -150,13 +139,8 @@ h4 {
   padding: 1rem;
 }
 .cardRoot {
-  border: 1px solid var(--border-color-light);
+  border: none;
   gap: 0;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-  cursor: pointer; /* Pointer cursor */
   img {
     border-radius: 5px 5px 0px 0px;
     border-bottom: 1px solid rgba(160, 142, 142, 0.2);
@@ -164,10 +148,6 @@ h4 {
     height: auto;
     overflow: visible;
   }
-}
-.cardRoot:hover {
-  transform: translateY(-10px) scale(1.05); /* Moves the card up slightly and scales it */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for a "pop" effect */
 }
 
 .cardHeader {
@@ -216,23 +196,6 @@ h4 {
   border: 1px solid rgba(160, 142, 142, 0.2);
 }
 
-.BorderCountries {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  padding: 1rem;
-  flex-wrap: wrap;
-  a {
-    padding: 0.5rem;
-    border: 1px solid rgba(160, 142, 142, 0.2);
-    border-radius: 5px;
-  }
-  span {
-    padding: 0.5rem;
-    border: 1px solid var(--border-color-dark);
-  }
-}
-
 form {
   margin: 2rem;
   display: grid;
@@ -262,8 +225,4 @@ form {
       align-items: center;
     }
   }
-}
-
-element.style {
-  border-radius: 5px;
 }

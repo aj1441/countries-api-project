@@ -2,6 +2,7 @@ import { useState } from 'react';
 import CountrySearch from '../customComponents/CountrySearchBar';
 import '../App.css';
 import CountryCard from '../customComponents/CountryCard';
+// import Header from '../customComponents/Header';
 
 function Home() {
     // State to store the search term
@@ -11,6 +12,7 @@ function Home() {
 
     return (
         <>
+            {/* <Header /> */}
             {/* Render the CountrySearch component and pass the necessary props */}
             <CountrySearch
                 searchTerm={searchTerm}
