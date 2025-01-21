@@ -87,8 +87,8 @@ const Country = () => {
             <span>None</span>
           )}
         </div>
-        <div className="SaveButton">
-          <Button>Save</Button>
+        <div className="SaveButtonContainer">
+          <Button className="SaveButton">Save</Button>
         </div>
       </div>
     </>

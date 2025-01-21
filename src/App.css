@@ -3,7 +3,7 @@
 /* // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 200 to 1000 */
 
-.nunito-sans-small {
+.nunito-sans {
   font-family: "Nunito Sans", serif;
   font-optical-sizing: auto;
   font-weight: 300;
@@ -11,7 +11,7 @@
   font-variation-settings: "wdth" 100, "YTLC" 500;
 }
 
-.nunito-sans-regular {
+/* .nunito-sans-regular {
   font-family: "Nunito Sans", serif;
   font-optical-sizing: auto;
   font-weight: 600;
@@ -25,7 +25,7 @@
   font-weight: 800;
   font-style: normal;
   font-variation-settings: "wdth" 100, "YTLC" 500;
-}
+} */
 
 :root {
   --font-primary: "Nunito Sans", serif;
@@ -50,7 +50,9 @@ body.light {
 
 body.light input,
 body.light textarea,
-body.light select body.light #searchContainer {
+body.light select option,
+ body.light #searchContainer,
+ body.light button {
   background-color: var(--verylightgrey);
   color: var(--verydarkbluetext);
 }
@@ -62,19 +64,24 @@ body.dark {
 
 body.dark input,
 body.dark textarea,
-body.dark select,
+body.dark select option,
 body.dark .searchContainer {
   background-color: var(--darkblue);
   color: var(--white);
 }
 button.theme-toggle {
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+  align-items: center;
   background: none;
-  border: 1px solid currentColor;
+  /* border: 1px solid currentColor; */
   color: inherit;
-  padding: 5px 10px;
+  padding: .5rem;
   cursor: pointer;
   border-radius: 5px;
 }
+
 
 button:hover {
   transform: translateY(-10px) scale(1.05); /* Moves the card up slightly and scales it */
@@ -82,9 +89,9 @@ button:hover {
 }
 
 .header {
-  font-family: "nunito-sans-regular";
+  font-family: "nunito-sans";
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: bolder;
   padding: 1rem;
   text-align: center;
   display: grid;
@@ -108,16 +115,22 @@ h4 {
   align-items: center;
   padding: 1rem;
   gap: 1rem;
-  font-size: 1rem;
+  font-size: .9rem;
 }
-.linkToSaved,
-.darkMode {
+.linkToSaved {
+  padding: .5rem;
+  border-radius: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
 }
+.linkToSaved:hover {
+  transform: translateY(-10px) scale(1.05); /* Moves the card up slightly and scales it */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for a "pop" effect */
+}
+
 .countrySearch {
   margin: 2rem;
   display: flex;
@@ -142,6 +155,10 @@ h4 {
     border: none;
   }
 }
+option::selection {
+  color: var(--verydarkbluetext);
+  background-color: var(--verylightgrey);
+}
 
 .cardContainer {
   display: grid;
@@ -158,11 +175,13 @@ h4 {
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
   cursor: pointer; /* Pointer cursor */
   img {
-    border-radius: 5px 5px 0px 0px;
+    object-fit: cover;
+    /* border-radius: 5px 5px 0px 0px;
     border-bottom: 1px solid rgba(160, 142, 142, 0.2);
     width: 100%;
     height: auto;
     overflow: visible;
+    all: inherit; */
   }
 }
 .cardRoot:hover {
@@ -181,12 +200,6 @@ h4 {
   border-top: none;
   border-radius: 0px 0px 5px 5px;
 }
-.MyCounrtyCardContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  padding: 1rem;
-}
 .CountryContainer {
   display: grid;
   grid-template-columns: 1fr;
@@ -201,18 +214,25 @@ h4 {
   padding: 1rem;
   width: 100%;
 }
-.CountryDetails {
+/* .CountryDetails {
   flex: 1;
   padding: 1rem;
-}
+} */
 
-.BackButton {
+.BackButton
+{
   border-radius: 5px;
   text-align: center;
-  margin: 2rem;
   padding: 0.5rem;
+  margin: 2rem;
   width: 10%;
   align-items: center;
+  border: 1px solid rgba(160, 142, 142, 0.2);
+}
+.SaveButton 
+{
+  border-radius: 5px;
+  padding: 1rem;
   border: 1px solid rgba(160, 142, 142, 0.2);
 }
 
