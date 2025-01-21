@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from "../components/ui/button";
-import './Country.css';
+// import './Country.css';
+// import { CardHorizontal } from '../customComponents/IndividualCountryCard';
+import { Box, Card, HStack, Image, Text } from "@chakra-ui/react"
 
 const Country = () => {
   // Get the country ID from the URL parameters
@@ -63,13 +65,54 @@ const Country = () => {
     navigate(-1); // Navigate back to the previous page
   };
 
+
+
+
+  
   return (
     <>
       <div>
         <Button className="BackButton" onClick={handleBackClick}>Back</Button>
       </div>
-      <div className="MyCountryCardContainer">
-        <img src={country.flags.png} alt={`Image of ${country.name.common}`} />
+       <Card.Root flexDirection="row" overflow="hidden" maxW="80%" placeSelf="center">
+              <Image
+                  objectFit="cover"
+                  maxW="50%"
+                  src={country.flags.svg}
+                  alt="Image of {country.name.common}"
+              />
+              <Box display="flex" flexDirection="row" justifyContent="space-between" p="4" flexWrap="wrap">
+                  <Card.Body >
+                      <Card.Title mb="2">{country.name.common}</Card.Title>
+                      <HStack>
+                          <ul>
+                              <li>Population: {country.population}</li>
+                              <li>Region: {country.region}</li>
+                              <li>Capital: {country.capital}</li>
+                              <li>Search For: XX times</li>
+                          </ul>
+                      </HStack>
+                      <HStack mt="4" flexWrap="wrap">
+                          <Text fontWeight="semibold" textStyle="xl">
+                              Border Countries:
+                          </Text>
+                          {borderCountries.length > 0 ? (
+            borderCountries.map((borderCountry, index) => (
+              <span key={index}>{borderCountry}</span>
+            ))
+          ) : (
+            <span>None</span>
+          )}
+                      </HStack>
+                  </Card.Body>
+                  <Card.Footer>
+                      <Button>Save</Button>
+                  </Card.Footer>
+              </Box>
+          </Card.Root>
+      {/* <CardHorizontal country={country} /> */}
+      {/* <div className="MyCountryCardContainer">
+        <img src={country.flags.svg} alt={`Image of ${country.name.common}`} />
         <div className="CountryDetails">
           <h2>{country.name.common}</h2>
           <p><span>Population:</span> {country.population}</p>
@@ -90,7 +133,7 @@ const Country = () => {
         <div className="SaveButtonContainer">
           <Button className="SaveButton">Save</Button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

@@ -1,4 +1,4 @@
-.MyCountryCardContainer {
+/* .MyCountryCardContainer {
   width: 80%;
   margin: auto;
   display: grid;
@@ -30,8 +30,7 @@
     };
     p {
       font-family: "nunito-sans";
-      /* font-size: 1rem; */
-      /* font-weight: 500; */
+  
       span {
         font-weight: bold;
       }
@@ -55,4 +54,4 @@
       }
     }
   }
-}
+} */

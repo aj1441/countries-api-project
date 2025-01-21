@@ -50,7 +50,7 @@ body.light {
 
 body.light input,
 body.light textarea,
-body.light select option,
+body.light select,
  body.light #searchContainer,
  body.light button {
   background-color: var(--verylightgrey);
@@ -64,7 +64,7 @@ body.dark {
 
 body.dark input,
 body.dark textarea,
-body.dark select option,
+body.dark select,
 body.dark .searchContainer {
   background-color: var(--darkblue);
   color: var(--white);
@@ -155,10 +155,10 @@ h4 {
     border: none;
   }
 }
-option::selection {
+/* option::selection {
   color: var(--verydarkbluetext);
   background-color: var(--verylightgrey);
-}
+} */
 
 .cardContainer {
   display: grid;

@@ -48,7 +48,8 @@ const CountrySearchBar = ({ searchTerm, setSearchTerm, selectedOption, setSelect
         />
       </div>
       <select value={selectedOption} onChange={handleDropdownChange}>
-        <option value="">Select a region</option>
+        <option value="">Select A Region</option>
+        <option value="">All</option>
         {regions.map((region) => (
           <option key={region} value={region}>
             {region}
