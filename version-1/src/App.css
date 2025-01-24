@@ -52,7 +52,9 @@ body.light input,
 body.light textarea,
 body.light select,
  body.light #searchContainer,
- body.light button {
+ body.light button,
+ body.light .cardBody,
+ body.light .cardHeader{
   background-color: var(--verylightgrey);
   color: var(--verydarkbluetext);
 }
@@ -65,11 +67,15 @@ body.dark {
 body.dark input,
 body.dark textarea,
 body.dark select,
-body.dark .searchContainer {
+body.dark .searchContainer,
+body.dark button,
+body.dark .cardBody,
+body.dark .cardHeader {
   background-color: var(--darkblue);
   color: var(--white);
 }
-button.theme-toggle {
+button.theme-toggle,
+ {
   display: flex;
   flex-direction: row;
   gap: .5rem;
@@ -253,7 +259,7 @@ h4 {
   }
 }
 
-form {
+. user-form {
   margin: 2rem;
   display: grid;
   grid-template-columns: 1fr;

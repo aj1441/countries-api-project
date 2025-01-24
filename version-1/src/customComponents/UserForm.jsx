@@ -1,4 +1,4 @@
-import './App.css';
+import '../App.css';
 import { useState } from 'react';
 
 function UserForm() {
@@ -23,7 +23,7 @@ function UserForm() {
     //send dataObj to backend
   };
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="user-form" onSubmit={handleSubmit}>
         <h2>My Profile</h2>
         <label>
           Full Name:
