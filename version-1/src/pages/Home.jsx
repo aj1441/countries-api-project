@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import CountrySearch from '../customComponents/CountrySearchBar';
+import CountrySearch from '../customComponents/CountrySearchBar.jsx';
 import '../App.css';
-import CountryCard from '../customComponents/CountryCard';
+import CountryCard from '../customComponents/CountryCard.jsx';
 
 function Home() {
     // State to store the search term

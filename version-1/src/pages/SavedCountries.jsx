@@ -1,5 +1,4 @@
-// import Header from '../customComponents/header';
-import UserForm from '../customComponents/UserForm';
+import UserForm from '../customComponents/UserForm.jsx';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "../components/ui/button"
 
