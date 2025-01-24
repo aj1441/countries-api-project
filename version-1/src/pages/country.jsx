@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from "../components/ui/button";
-// import './Country.css';
-// import { CardHorizontal } from '../customComponents/IndividualCountryCard';
 import { Box, Card, HStack, Image, Text } from "@chakra-ui/react"
 
 const Country = () => {
@@ -110,30 +108,7 @@ const Country = () => {
                   </Card.Footer>
               </Box>
           </Card.Root>
-      {/* <CardHorizontal country={country} /> */}
-      {/* <div className="MyCountryCardContainer">
-        <img src={country.flags.svg} alt={`Image of ${country.name.common}`} />
-        <div className="CountryDetails">
-          <h2>{country.name.common}</h2>
-          <p><span>Population:</span> {country.population}</p>
-          <p><span>Region:</span> {country.region}</p>
-          <p><span>Capital:</span> {country.capital}</p>
-          <p><span>Search For:</span> XX times</p>
-        </div>
-        <div className="BorderCountries">
-          <h4>Border Countries:</h4>
-          {borderCountries.length > 0 ? (
-            borderCountries.map((borderCountry, index) => (
-              <span key={index}>{borderCountry}</span>
-            ))
-          ) : (
-            <span>None</span>
-          )}
-        </div>
-        <div className="SaveButtonContainer">
-          <Button className="SaveButton">Save</Button>
-        </div>
-      </div> */}
+
     </>
   );
 };
