@@ -2,8 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Header from './customComponents/Header.jsx';
 import Home from './pages/Home.jsx';
-import SavedCountries from './pages/SavedCountries.jsx';  
-import Country from './pages/Country.jsx';  
+import SavedCountries from './pages/SavedCountries.jsx';
+import Country from './pages/Country.jsx';
 import './App.css';
 
 function App() {
