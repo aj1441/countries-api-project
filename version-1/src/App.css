@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;800&display=swap");
 /* // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 200 to 1000 */
 
@@ -10,6 +9,13 @@
   font-style: normal;
   font-variation-settings: "wdth" 100, "YTLC" 500;
 }
+/* .nunito-sans {
+  font-family: "Nunito Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "wdth" 100, "YTLC" 500;
+} */
 
 /* .nunito-sans-regular {
   font-family: "Nunito Sans", serif;
@@ -38,6 +44,9 @@
   --border-color-light: rgba(195, 181, 181, 0.2);
   --border-color-dark: rgba(160, 142, 142, 0.2);
 }
+* {
+  font: var(--font-primary);
+}
 body {
   font-family: var(--font-primary);
   margin: 0;
@@ -51,10 +60,10 @@ body.light {
 body.light input,
 body.light textarea,
 body.light select,
- body.light #searchContainer,
- body.light button,
- body.light .cardBody,
- body.light .cardHeader{
+body.light #searchContainer,
+body.light button,
+body.light .cardBody,
+body.light .cardHeader {
   background-color: var(--verylightgrey);
   color: var(--verydarkbluetext);
 }
@@ -74,29 +83,30 @@ body.dark .cardHeader {
   background-color: var(--darkblue);
   color: var(--white);
 }
-button.theme-toggle,
- {
+button.theme-toggle {
   display: flex;
   flex-direction: row;
-  gap: .5rem;
+  gap: 0.5rem;
   align-items: center;
   background: none;
   /* border: 1px solid currentColor; */
   color: inherit;
-  padding: .5rem;
+  padding: 0.5rem;
   cursor: pointer;
   border-radius: 5px;
 }
-
 
 button:hover {
   transform: translateY(-10px) scale(1.05); /* Moves the card up slightly and scales it */
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for a "pop" effect */
 }
 
+h3 {
+  font-weight: bolder;
+}
 .header {
-  font-family: "nunito-sans";
-  font-size: 1.5rem;
+  /* font-family: "nunito-sans"; */
+  font-size: 2rem;
   font-weight: bolder;
   padding: 1rem;
   text-align: center;
@@ -105,12 +115,12 @@ button:hover {
   align-items: center;
   justify-content: space-between;
   h1 {
-    font-family: "nunito-sans-large";
+    /* font-family: "nunito-sans-large"; */
     font-weight: bolder;
   }
 }
 h4 {
-  font-family: "nunito-sans-large";
+  /* font-family: "nunito-sans-large"; */
   font-weight: bolder;
 }
 
@@ -121,10 +131,10 @@ h4 {
   align-items: center;
   padding: 1rem;
   gap: 1rem;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 .linkToSaved {
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 5px;
   display: flex;
   flex-direction: row;
@@ -196,13 +206,14 @@ h4 {
 }
 
 .cardHeader {
-  font-family: "nunito-sans-large";
+  /* font-family: "nunito-sans-large"; */
+  font-size: 1rem;
   font-weight: bolder;
   padding: 1rem;
   border-bottom: none;
 }
 .cardBody {
-  font-family: "nunito-sans-regular";
+  /* font-family: "nunito-sans-regular"; */
   border-top: none;
   border-radius: 0px 0px 5px 5px;
 }
@@ -225,8 +236,7 @@ h4 {
   padding: 1rem;
 } */
 
-.BackButton
-{
+.BackButton {
   border-radius: 5px;
   text-align: center;
   padding: 0.5rem;
@@ -235,8 +245,7 @@ h4 {
   align-items: center;
   border: 1px solid rgba(160, 142, 142, 0.2);
 }
-.SaveButton 
-{
+.SaveButton {
   border-radius: 5px;
   padding: 1rem;
   border: 1px solid rgba(160, 142, 142, 0.2);
@@ -248,19 +257,15 @@ h4 {
   gap: 0.5rem;
   padding: 1rem;
   flex-wrap: wrap;
-  a {
-    padding: 0.5rem;
-    border: 1px solid rgba(160, 142, 142, 0.2);
-    border-radius: 5px;
-  }
+
   span {
     padding: 0.5rem;
     border: 1px solid var(--border-color-dark);
   }
 }
 
-. user-form {
-  margin: 2rem;
+.user-form {
+  margin: auto;
   display: grid;
   grid-template-columns: 1fr;
   width: 40%;
@@ -272,7 +277,7 @@ h4 {
     padding: 0.5rem;
   }
   h2 {
-    font-family: "nunito-sans-large";
+    /* font-family: "nunito-sans-large"; */
     font-weight: bolder;
   }
   .button-wrapper {
@@ -325,10 +330,9 @@ form {
     padding: 0.5rem;
     width: 100%;
     height: 100%;
-
   }
   h2 {
-    font-family: "nunito-sans-large";
+    /* font-family: "nunito-sans-large"; */
     font-weight: bolder;
   }
   button {
@@ -338,12 +342,5 @@ form {
     border-radius: 5px;
     text-align: center;
     margin-top: 2rem;
-
-    /* input {
-      padding: 0.5rem;
-      border: none;
-      border-radius: 5px;
-      align-items: center;
-    } */
   }
 }

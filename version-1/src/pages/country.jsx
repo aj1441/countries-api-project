@@ -74,14 +74,14 @@ const Country = () => {
       <div>
         <Button className="BackButton" onClick={handleBackClick}>Back</Button>
       </div>
-       <Card.Root flexDirection="row" overflow="hidden" maxW="80%" placeSelf="center">
+       <Card.Root flexDirection="row" overflow="hidden" maxW={{ base: "100%", md: "80%" }} placeSelf="center">
               <Image
                   objectFit="cover"
                   maxW="50%"
                   src={country.flags.svg}
                   alt="Image of {country.name.common}"
               />
-              <Box display="flex" flexDirection="row" justifyContent="space-between" p="4" flexWrap="wrap">
+              <Box className="cardBody" display="flex" flexDirection="row" justifyContent="space-between" p="4" flexWrap="wrap">
                   <Card.Body >
                       <Card.Title mb="2">{country.name.common}</Card.Title>
                       <HStack>
@@ -92,7 +92,7 @@ const Country = () => {
                               <li>Search For: XX times</li>
                           </ul>
                       </HStack>
-                      <HStack mt="4" flexWrap="wrap">
+                      <HStack className="BorderCountries" mt="4" flexWrap="wrap">
                           <Text fontWeight="semibold" textStyle="xl">
                               Border Countries:
                           </Text>
@@ -106,7 +106,7 @@ const Country = () => {
                       </HStack>
                   </Card.Body>
                   <Card.Footer>
-                      <Button>Save</Button>
+                      <Button className="BackButton" fontWeight="semibold">Save</Button>
                   </Card.Footer>
               </Box>
           </Card.Root>
