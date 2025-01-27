@@ -15,6 +15,18 @@ function App() {
     return stored ? JSON.parse(stored) : [];
   });
 
+
+
+  const [timesClicked, setTimesClicked] = useState(() => {
+    const stored = localStorage.getItem('timesClicked');
+    return stored ? JSON.parse(stored) : {};
+  });
+
+  // Update localStorage whenever timesClicked changes
+  useEffect(() => {
+    localStorage.setItem('timesClicked', JSON.stringify(timesClicked));
+  }, [timesClicked]);
+
   // Update the body class whenever the theme changes
   useEffect(() => {
     document.body.className = theme === 'light' ? 'light' : 'dark';
@@ -28,7 +40,7 @@ function App() {
     getCountries();
   }, []);
 
-  
+
 
   // Toggle theme between light and dark
   const toggleTheme = () => {
@@ -44,9 +56,10 @@ function App() {
       <Header toggleTheme={toggleTheme} theme={theme} />
 
       <Routes>
-        <Route path="/" element={<Home countries={fetchedCountries} />} />
-        <Route path="/savedcountries" element={<SavedCountries favorites={favorites} countries={fetchedCountries}/>} />
-        <Route path="/country/:id" element={<Country countries={fetchedCountries} setFavorites={setFavorites} favorites={favorites} />} />
+        <Route path="/" element={<Home countries={fetchedCountries} timesClicked={timesClicked} setTimesClicked={setTimesClicked} />} />
+        <Route path="/savedcountries" element={<SavedCountries favorites={favorites} countries={fetchedCountries} timesClicked={timesClicked} setTimesClicked={setTimesClicked}  />} />
+        <Route path="/country/:id" element={<Country countries={fetchedCountries} setFavorites={setFavorites} favorites={favorites} timesClicked={timesClicked} setTimesClicked={setTimesClicked} />} />
+
       </Routes>
     </>
   );

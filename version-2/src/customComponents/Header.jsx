@@ -1,7 +1,7 @@
-import {  Link } from 'react-router-dom';// import Home from '../pages/Home';
+/* eslint-disable react/prop-types */
+import { Link } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
 import { LuMoon, LuSun } from "react-icons/lu";
-import PropTypes from 'prop-types';
 
 
 
@@ -11,7 +11,11 @@ function Header({ toggleTheme, theme }) {
   return (
     <>
       <header className="header">
-        <h1>Where in the world?</h1>
+        <h1>
+          <Link className="linkToHome" to="/">
+            Where in the world?
+          </Link>
+        </h1>
         <ul className="navContainter">
           <li>
 
@@ -37,9 +41,6 @@ function Header({ toggleTheme, theme }) {
     </>
   )
 };
-Header.propTypes = {
-  toggleTheme: PropTypes.func.isRequired,
-  theme: PropTypes.string.isRequired,
-};
+
 
 export default Header;

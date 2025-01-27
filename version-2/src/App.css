@@ -11,22 +11,6 @@
   font-variation-settings: "wdth" 100, "YTLC" 500;
 }
 
-/* .nunito-sans-regular {
-  font-family: "Nunito Sans", serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-  font-variation-settings: "wdth" 100, "YTLC" 500;
-}
-
-.nunito-sans-large {
-  font-family: "Nunito Sans", serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
-  font-variation-settings: "wdth" 100, "YTLC" 500;
-} */
-
 :root {
   --font-primary: "Nunito Sans";
   --darkblue: #2b3945;
@@ -37,6 +21,9 @@
   --white: #ffffff;
   --border-color-light: rgba(195, 181, 181, 0.2);
   --border-color-dark: rgba(160, 142, 142, 0.2);
+}
+* {
+  font: var(--font-primary);
 }
 body {
   font-family: var(--font-primary);
@@ -51,8 +38,10 @@ body.light {
 body.light input,
 body.light textarea,
 body.light select,
- body.light #searchContainer,
- body.light button {
+body.light #searchContainer,
+body.light button,
+body.light .cardBody,
+body.light .cardHeader {
   background-color: var(--verylightgrey);
   color: var(--verydarkbluetext);
 }
@@ -65,23 +54,25 @@ body.dark {
 body.dark input,
 body.dark textarea,
 body.dark select,
-body.dark .searchContainer {
+body.dark .searchContainer,
+body.dark button,
+body.dark .cardBody,
+body.dark .cardHeader {
   background-color: var(--darkblue);
   color: var(--white);
 }
 button.theme-toggle {
   display: flex;
   flex-direction: row;
-  gap: .5rem;
+  gap: 0.5rem;
   align-items: center;
   background: none;
   /* border: 1px solid currentColor; */
   color: inherit;
-  padding: .5rem;
+  padding: 0.5rem;
   cursor: pointer;
   border-radius: 5px;
 }
-
 
 button:hover {
   transform: translateY(-10px) scale(1.05); /* Moves the card up slightly and scales it */
@@ -89,8 +80,8 @@ button:hover {
 }
 
 .header {
-  font-family: "nunito-sans";
-  font-size: 1.5rem;
+  /* font-family: "nunito-sans"; */
+  font-size: 2rem;
   font-weight: bolder;
   padding: 1rem;
   text-align: center;
@@ -99,12 +90,12 @@ button:hover {
   align-items: center;
   justify-content: space-between;
   h1 {
-    font-family: "nunito-sans-large";
+    /* font-family: "nunito-sans-large"; */
     font-weight: bolder;
   }
 }
 h4 {
-  font-family: "nunito-sans-large";
+  /* font-family: "nunito-sans-large"; */
   font-weight: bolder;
 }
 
@@ -115,10 +106,10 @@ h4 {
   align-items: center;
   padding: 1rem;
   gap: 1rem;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 .linkToSaved {
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 5px;
   display: flex;
   flex-direction: row;
@@ -190,13 +181,14 @@ h4 {
 }
 
 .cardHeader {
-  font-family: "nunito-sans-large";
+  /* font-family: "nunito-sans-large"; */
+  font-size: 1rem;
   font-weight: bolder;
   padding: 1rem;
   border-bottom: none;
 }
 .cardBody {
-  font-family: "nunito-sans-regular";
+  /* font-family: "nunito-sans-regular"; */
   border-top: none;
   border-radius: 0px 0px 5px 5px;
 }
@@ -219,8 +211,8 @@ h4 {
   padding: 1rem;
 } */
 
-.BackButton
-{
+.BackButton,
+.HomeButton {
   border-radius: 5px;
   text-align: center;
   padding: 0.5rem;
@@ -229,8 +221,7 @@ h4 {
   align-items: center;
   border: 1px solid rgba(160, 142, 142, 0.2);
 }
-.SaveButton 
-{
+.SaveButton {
   border-radius: 5px;
   padding: 1rem;
   border: 1px solid rgba(160, 142, 142, 0.2);
@@ -252,10 +243,20 @@ h4 {
     border: 1px solid var(--border-color-dark);
   }
 }
-.SavedContriesTitle {
+.welcomeMessage {
+  font-size: 1.5rem;
   margin: auto;
   max-width: 20%;
   align-items: center;
+  font-weight: 800;
+  padding: 2.5rem;
+  border-bottom: none;
+}
+.SavedCountriesTitle {
+  font-size: 1.5rem;
+  margin: auto;
+  /* max-width: 20%; */
+  /* align-items: center; */
   font-weight: 800;
   padding: 1rem;
   border-bottom: none;
@@ -283,7 +284,6 @@ form {
     padding: 0.5rem;
     width: 100%;
     height: 100%;
-
   }
   h2 {
     font-family: "nunito-sans-large";

@@ -9,29 +9,6 @@
   font-style: normal;
   font-variation-settings: "wdth" 100, "YTLC" 500;
 }
-/* .nunito-sans {
-  font-family: "Nunito Sans", serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-  font-variation-settings: "wdth" 100, "YTLC" 500;
-} */
-
-/* .nunito-sans-regular {
-  font-family: "Nunito Sans", serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-  font-variation-settings: "wdth" 100, "YTLC" 500;
-}
-
-.nunito-sans-large {
-  font-family: "Nunito Sans", serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
-  font-variation-settings: "wdth" 100, "YTLC" 500;
-} */
 
 :root {
   --font-primary: "Nunito Sans";
@@ -236,6 +213,7 @@ h4 {
   padding: 1rem;
 } */
 
+.HomeButton,
 .BackButton {
   border-radius: 5px;
   text-align: center;

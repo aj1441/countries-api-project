@@ -72,12 +72,12 @@ const Country = () => {
       <div>
         <Button className="BackButton" onClick={handleBackClick}>Back</Button>
       </div>
-       <Card.Root flexDirection="row" overflow="hidden" maxW={{ base: "100%", md: "80%" }} placeSelf="center">
+       <Card.Root flexDirection={{ base: "column", sm: "row" }} overflow="hidden" maxW={{ base: "80%", md: "75%" }} placeSelf="center">
               <Image
-                  objectFit="cover"
-                  maxW="50%"
-                  src={country.flags.svg}
-                  alt="Image of {country.name.common}"
+              objectFit="cover"
+          width={{ base: "100%", md: "50%" }}
+          src={country.flags.svg}
+          alt={`Image of ${country.name.common}`}
               />
               <Box className="cardBody" display="flex" flexDirection="row" justifyContent="space-between" p="4" flexWrap="wrap">
                   <Card.Body >

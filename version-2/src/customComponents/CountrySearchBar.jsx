@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import { LuSearch } from 'react-icons/lu';
-import PropTypes from 'prop-types';
 
 const CountrySearchBar = ({ countries, searchTerm, setSearchTerm, selectedOption, setSelectedOption }) => {
   const regions = [...new Set(countries.map(country => country.region))].filter(Boolean);
@@ -40,15 +40,5 @@ const CountrySearchBar = ({ countries, searchTerm, setSearchTerm, selectedOption
   );
 };
 
-// Define prop types for the CountrySearchBar component
-CountrySearchBar.propTypes = {
-  countries: PropTypes.arrayOf(PropTypes.shape({
-    region: PropTypes.string.isRequired,
-  })).isRequired,
-  searchTerm: PropTypes.string.isRequired,
-  setSearchTerm: PropTypes.func.isRequired,
-  selectedOption: PropTypes.string.isRequired,
-  setSelectedOption: PropTypes.func.isRequired,
-};
-// Export the CountrySearchBar component as the default export
+
 export default CountrySearchBar;

@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from "../components/ui/button";
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Box, Card, HStack, Image, Text } from "@chakra-ui/react"
 
 const Country = ({ countries, setFavorites }) => {
@@ -11,6 +12,8 @@ const Country = ({ countries, setFavorites }) => {
   const navigate = useNavigate();
   const country = countries.find((c) => c.cca3 === id);
   const [borderCountries, setBorderCountries] = useState([]);
+  const [clickCount, setClickCount] = useState(0);
+
 
   useEffect(() => {
     const fetchBorderCountries = () => {
@@ -28,7 +31,14 @@ const Country = ({ countries, setFavorites }) => {
     fetchBorderCountries();
   }, [country, countries]);
 
+  useEffect(() => {
+    // Retrieve click count from local storage
+    const storedClicks = JSON.parse(localStorage.getItem('timesClicked')) || {};
+    setClickCount(storedClicks[id] || 0);
+  }, [id]);
+
   if (!country) return <p>Country not found.</p>;
+
 
   // Function to handle back button click
   const handleBackClick = () => {
@@ -36,8 +46,12 @@ const Country = ({ countries, setFavorites }) => {
   };
 
   const handleSaveClick = () => {
+    const storedProfile = localStorage.getItem('profile');
+    if (!storedProfile) {
+      alert('You are not logged in. Please log in on the Saved Countries page to save your countries.');
+      return;
+    }
     try {
-      // Get existing favorites from localStorage
       const existingFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
       // Check if country already exists
@@ -63,8 +77,6 @@ const Country = ({ countries, setFavorites }) => {
   };
 
 
-
-
   return (
     <>
       <div>
@@ -74,10 +86,10 @@ const Country = ({ countries, setFavorites }) => {
         <Image
           objectFit="cover"
           maxW="50%"
-          src={country.flags.svg}
+          src={country.flags.png}
           alt="Image of {country.name.common}"
         />
-        <Box display="flex" flexDirection="row" justifyContent="space-between" p="4" flexWrap="wrap">
+        <Box display="flex" flexDirection="row" justifyContent="space-between" p="4" flexWrap="wrap" >
           <Card.Body >
             <Card.Title mb="2">{country.name.common}</Card.Title>
             <HStack>
@@ -85,7 +97,7 @@ const Country = ({ countries, setFavorites }) => {
                 <li>Population: {country.population}</li>
                 <li>Region: {country.region}</li>
                 <li>Capital: {country.capital}</li>
-                <li>Search For: XX times</li>
+                <li className="numberTimesClicked">Search For: {clickCount} times</li>
               </ul>
             </HStack>
             <HStack mt="4" flexWrap="wrap">
@@ -110,23 +122,25 @@ const Country = ({ countries, setFavorites }) => {
     </>
   );
 };
-Country.propTypes = {
-  countries: PropTypes.arrayOf(PropTypes.shape({
-    cca3: PropTypes.string.isRequired,
-    name: PropTypes.shape({
-      common: PropTypes.string.isRequired,
-    }).isRequired,
-    population: PropTypes.number.isRequired,
-    region: PropTypes.string.isRequired,
-    capital: PropTypes.arrayOf(PropTypes.string),
-    flags: PropTypes.shape({
-      png: PropTypes.string.isRequired,
-    }).isRequired,
-    borders: PropTypes.arrayOf(PropTypes.string),
-  })).isRequired,
-  setFavorites: PropTypes.func.isRequired,
-  favorites: PropTypes.array.isRequired,
-};
+
+// Country.propTypes = {
+//   countries: PropTypes.arrayOf(PropTypes.shape({
+//     cca3: PropTypes.string.isRequired,
+//     name: PropTypes.shape({
+//       common: PropTypes.string.isRequired,
+//     }).isRequired,
+//     population: PropTypes.number.isRequired,
+//     region: PropTypes.string.isRequired,
+//     capital: PropTypes.arrayOf(PropTypes.string),
+//     flags: PropTypes.shape({
+//       png: PropTypes.string.isRequired,
+//     }).isRequired,
+//     borders: PropTypes.arrayOf(PropTypes.string),
+//   })).isRequired,
+//   setFavorites: PropTypes.func.isRequired,
+// };
+
+
 
 
 export default Country;

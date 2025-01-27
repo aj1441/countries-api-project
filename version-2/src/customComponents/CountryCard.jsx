@@ -1,15 +1,19 @@
-import PropTypes from 'prop-types';
+/* eslint-disable react/prop-types */
 import { Card, Image } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
-function CountryCard({ countries }) {
+function CountryCard({ countries, timesClicked, setTimesClicked }) {
 
     const navigate = useNavigate();
 
 
     const handleClick = (country) => {
+
+      
+        const newTimesClicked = { ...timesClicked, [country.cca3]: (timesClicked[country.cca3] || 0) + 1 };
+        setTimesClicked(newTimesClicked);
         navigate(`/country/${country.cca3}`);
-    };
+      };
 
     return (
         <div className="cardContainer">
@@ -29,24 +33,9 @@ function CountryCard({ countries }) {
         </div>
     );
 }
-CountryCard.propTypes = {
-    countries: PropTypes.arrayOf(
-        PropTypes.shape({
-            name: PropTypes.shape({
-                common: PropTypes.string.isRequired,
-            }).isRequired,
-            cca3: PropTypes.string.isRequired,
-            flags: PropTypes.shape({
-                png: PropTypes.string.isRequired,
-                alt: PropTypes.string,
-            }).isRequired,
-            population: PropTypes.number.isRequired,
-            region: PropTypes.string.isRequired,
-            capital: PropTypes.arrayOf(PropTypes.string),
-        })
-    ).isRequired,
-    searchTerm: PropTypes.string,
-    selectedOption: PropTypes.string,
-};
+
+
+
+
 
 export default CountryCard;
