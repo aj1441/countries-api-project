@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Card, Image } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { fetchCountries } from '../helperFunctions/FetchCountriesApi';
@@ -61,9 +61,6 @@ function CountryCard({ searchTerm, selectedOption }) {
         </div>
     );
 }
-CountryCard.propTypes = {
-    searchTerm: PropTypes.string.isRequired,
-    selectedOption: PropTypes.string,
-};
+
 
 export default CountryCard;

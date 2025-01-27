@@ -1,7 +1,7 @@
+/* eslint-disable react/prop-types */
 import {  Link } from 'react-router-dom';// import Home from '../pages/Home';
 import * as FaIcons from 'react-icons/fa';
 import { LuMoon, LuSun } from "react-icons/lu";
-import PropTypes from 'prop-types';
 
 
 
@@ -37,9 +37,6 @@ function Header({ toggleTheme, theme }) {
     </>
   )
 };
-Header.propTypes = {
-  toggleTheme: PropTypes.func.isRequired,
-  theme: PropTypes.string.isRequired,
-};
+
 
 export default Header;
