@@ -5,7 +5,7 @@ import { Button } from "../components/ui/button";
 // import PropTypes from 'prop-types';
 import { Box, Card, HStack, Image, Text } from "@chakra-ui/react"
 
-const Country = ({ countries, setFavorites }) => {
+function Country({ countries, setFavorites }) {
   // Get the country ID from the URL parameters
   const { id } = useParams();
   // Hook to navigate programmatically
