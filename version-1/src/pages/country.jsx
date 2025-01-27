@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from "../components/ui/button";
 import { Box, Card, HStack, Image, Text } from "@chakra-ui/react"
 
-const Country = () => {
+function Country ()  {
   // Get the country ID from the URL parameters
   const { id } = useParams();
   // Hook to navigate programmatically
@@ -30,7 +30,7 @@ const Country = () => {
         const data = await response.json();
         // Set the country data to state
         setCountry(data[0]);
-       // Fetch the border countries data
+        // Fetch the border countries data
         if (data[0].borders) {
           const borderResponses = await Promise.all(
             data[0].borders.map(border => fetch(`https://restcountries.com/v3.1/alpha/${border}`))
@@ -63,51 +63,47 @@ const Country = () => {
     navigate(-1); // Navigate back to the previous page
   };
 
-
-
-
-  
   return (
     <>
       <div>
         <Button className="BackButton" onClick={handleBackClick}>Back</Button>
       </div>
-       <Card.Root flexDirection={{ base: "column", sm: "row" }} overflow="hidden" maxW={{ base: "80%", md: "75%" }} placeSelf="center">
-              <Image
-              objectFit="cover"
+      <Card.Root flexDirection={{ base: "column", sm: "row" }} overflow="hidden" maxW={{ base: "80%", md: "75%" }} placeSelf="center">
+        <Image
+          objectFit="cover"
           width={{ base: "100%", md: "50%" }}
           src={country.flags.svg}
           alt={`Image of ${country.name.common}`}
-              />
-              <Box className="cardBody" display="flex" flexDirection="row" justifyContent="space-between" p="4" flexWrap="wrap">
-                  <Card.Body >
-                      <Card.Title mb="2">{country.name.common}</Card.Title>
-                      <HStack>
-                          <ul>
-                              <li>Population: {country.population}</li>
-                              <li>Region: {country.region}</li>
-                              <li>Capital: {country.capital}</li>
-                              <li>Search For: XX times</li>
-                          </ul>
-                      </HStack>
-                      <HStack className="BorderCountries" mt="4" flexWrap="wrap">
-                          <Text fontWeight="semibold" textStyle="xl">
-                              Border Countries:
-                          </Text>
-                          {borderCountries.length > 0 ? (
-            borderCountries.map((borderCountry, index) => (
-              <span key={index}>{borderCountry}</span>
-            ))
-          ) : (
-            <span>None</span>
-          )}
-                      </HStack>
-                  </Card.Body>
-                  <Card.Footer>
-                      <Button className="BackButton" fontWeight="semibold">Save</Button>
-                  </Card.Footer>
-              </Box>
-          </Card.Root>
+        />
+        <Box className="cardBody" display="flex" flexDirection="row" justifyContent="space-between" p="4" flexWrap="wrap">
+          <Card.Body >
+            <Card.Title mb="2">{country.name.common}</Card.Title>
+            <HStack>
+              <ul>
+                <li>Population: {country.population}</li>
+                <li>Region: {country.region}</li>
+                <li>Capital: {country.capital}</li>
+                <li>Search For: XX times</li>
+              </ul>
+            </HStack>
+            <HStack className="BorderCountries" mt="4" flexWrap="wrap">
+              <Text fontWeight="semibold" textStyle="xl">
+                Border Countries:
+              </Text>
+              {borderCountries.length > 0 ? (
+                borderCountries.map((borderCountry, index) => (
+                  <span key={index}>{borderCountry}</span>
+                ))
+              ) : (
+                <span>None</span>
+              )}
+            </HStack>
+          </Card.Body>
+          <Card.Footer>
+            <Button className="BackButton" fontWeight="semibold">Save</Button>
+          </Card.Footer>
+        </Box>
+      </Card.Root>
 
     </>
   );
