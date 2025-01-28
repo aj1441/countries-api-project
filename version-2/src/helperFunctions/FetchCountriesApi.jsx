@@ -1,4 +1,4 @@
-import '/Users/aj/Documents/Dev/countries-api-project/version-2/src/data.json';
+// import '/Users/aj/Documents/Dev/countries-api-project/version-2/src/data.json';
 
 
 export const fetchCountries = async () => {
@@ -13,7 +13,7 @@ export const fetchCountries = async () => {
         console.error('Failed to fetch countries from API:', error);
         // Fallback to local data.json file
         try {
-            const localResponse = await fetch('version-2/src/data.json');
+            const localResponse = await fetch('/data.json');
             if (!localResponse.ok) {
                 throw new Error('Network response was not ok');
             }
